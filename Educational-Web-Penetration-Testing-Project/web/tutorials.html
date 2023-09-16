@@ -1,10 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Web Design and Databases - Web Penetration Testing Project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 </head>
+
 <body>
 
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <a class="navbar-brand hover-top" href="index.html">Web Penetration Testing Project</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="vulnerabilities.html">Encryption</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tutorials.html">Secure Webdesign and Databases</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="learning.html" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Learning
+                    </a>
+                    <div class="dropdown-menu custom-dropdown" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="sqlinjection.html">SQL Injection</a>
+                        <a class="dropdown-item" href="crosssitescripting.html">Cross-Site Scripting</a>
+                        <a class="dropdown-item" href="crosssiterequestforgery.html">Cross-Site Request Forgery</a>
+                    </div>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="main spacer">
+    <header class="doc-header about-content">
+        <h1>Secure Web Design and Databases Documentation</h1>
+    </header>
+
+    <section>
+        <h2>Secure Web Design</h2>
+        <p>
+            Secure web design is the foundation of a robust web application security strategy. Here are detailed explanations of key principles:
+        </p>
+
+        <h3>Principle of Least Privilege</h3>
+        <p>
+            The Principle of Least Privilege (POLP) is a crucial concept in secure web design. It involves limiting user and system privileges to the minimum necessary for performing tasks. By adhering to POLP, you can reduce the potential attack surface of your application.
+        </p>
+        <p>
+            For example, if a user account only needs read access to a certain database table, it should not have write or delete privileges. This limits the risk of unauthorized data modifications.
+        </p>
+
+        <h3>Input Validation</h3>
+        <p>
+            Input validation is an essential defense mechanism against various types of attacks, including SQL injection, Cross-Site Scripting (XSS), and Cross-Site Request Forgery (CSRF). Robust input validation ensures that the data your application receives is safe and within expected boundaries.
+        </p>
+        <p>
+            To implement input validation, you can use server-side and client-side validation techniques. Server-side validation should always be in place to handle potentially malicious input, while client-side validation enhances user experience.
+        </p>
+
+        <h3>Authentication and Authorization</h3>
+        <p>
+            Authentication verifies the identity of users or systems accessing your application. Strong authentication methods, such as multi-factor authentication (MFA), add an extra layer of security. Once users are authenticated, authorization controls ensure they can only access resources and perform actions they are allowed to.
+        </p>
+        <p>
+            Implement role-based access control (RBAC) to manage user roles and permissions effectively. Regularly review and update access control lists to maintain a secure environment.
+        </p>
+
+        <h3>Secure Coding Practices</h3>
+        <p>
+            Developers play a critical role in secure web design. Following secure coding practices and guidelines helps avoid vulnerabilities in the application code. Encourage developers to undergo security training to stay up-to-date with the latest threats and best practices.
+        </p>
+        <p>
+            Code reviews and static code analysis tools can help identify security issues early in the development process.
+        </p>
+
+    </section>
+
+    <section>
+        <h2>Secure Databases</h2>
+        <p>
+            A secure database is crucial for protecting sensitive data. Here's a detailed explanation of key practices for securing databases:
+        </p>
+
+        <h3>Data Encryption</h3>
+        <p>
+            Data encryption ensures that sensitive information is protected, both at rest and in transit. At rest, this means encrypting data stored in the database, while in transit, it involves encrypting data as it moves between the application and the database server.
+        </p>
+        <p>
+            Common encryption methods include using TLS/SSL for data in transit and technologies like Transparent Data Encryption (TDE) for data at rest.
+        </p>
+
+        <h3>Access Controls</h3>
+        <p>
+            Access controls, including Role-Based Access Control (RBAC), are essential for enforcing the principle of least privilege within a database. RBAC allows you to define roles and permissions, ensuring that users and applications can only access data and perform actions they are authorized to.
+        </p>
+        <p>
+            It's crucial to regularly review and update access control lists to reflect changes in your application and user roles.
+        </p>
+
+        <h3>Patch Management</h3>
+        <p>
+            Keeping your database software and systems up-to-date with security patches and updates is critical. Vulnerabilities in database systems are regularly discovered and patched by vendors. Failing to apply these patches can leave your database exposed to known threats.
+        </p>
+        <p>
+            Implement a robust patch management process to ensure timely updates.
+        </p>
+
+    </section>
+</div>
+
+<!-- Include Bootstrap JavaScript and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Your custom scripts -->
+<script src="js\scripts.js"></script>
 </body>
 </html>

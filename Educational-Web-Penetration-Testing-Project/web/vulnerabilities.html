@@ -1,10 +1,444 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption Guide - Web Penetration Testing Project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 </head>
+
 <body>
 
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <a class="navbar-brand hover-top" href="index.html">Web Penetration Testing Project</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="vulnerabilities.html">Encryption</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tutorials.html">Secure Webdesign and Databases</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="learning.html" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Learning
+                    </a>
+                    <div class="dropdown-menu custom-dropdown" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="sqlinjection.html">SQL Injection</a>
+                        <a class="dropdown-item" href="crosssitescripting.html">Cross-Site Scripting</a>
+                        <a class="dropdown-item" href="crosssiterequestforgery.html">Cross-Site Request Forgery</a>
+                        <a class="dropdown-item" href="encryption.html">Encryption</a>
+                    </div>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="main spacer">
+    <header class="doc-header about-content">
+        <h1>Encryption Guide</h1>
+    </header>
+
+    <section>
+        <h2>What is Encryption?</h2>
+        <p>
+            Encryption is a process of converting plain text into a secret code (cipher text) to protect the
+            confidentiality
+            and integrity of information. It plays a crucial role in securing data in transit and at rest.
+        </p>
+    </section>
+
+    <section>
+        <h2>Why is Encryption Important?</h2>
+        <p>
+            Encryption ensures that sensitive information remains confidential even if unauthorized parties gain access
+            to it.
+            It is vital for protecting data such as passwords, financial transactions, and personal communications.
+        </p>
+    </section>
+
+    <section>
+        <h2>Types of Encryption</h2>
+        <h3>Symmetric Encryption</h3>
+        <p>
+            Symmetric encryption uses a single secret key for both encryption and decryption. It's efficient but
+            requires a secure
+            method of key exchange.
+        </p>
+
+        <h3>Asymmetric Encryption</h3>
+        <p>
+            Asymmetric encryption uses a pair of keys, a public key for encryption and a private key for decryption.
+            It's widely used
+            for secure data exchange and digital signatures.
+        </p>
+
+        <h3>End-to-End Encryption</h3>
+        <p>
+            End-to-End encryption ensures that data is encrypted on the sender's side and only decrypted on the
+            receiver's side. It
+            prevents intermediaries from accessing the data.
+        </p>
+    </section>
+
+    <section>
+        <h2>How to Implement Encryption</h2>
+        <p>
+            To implement encryption, follow these steps:
+        </p>
+        <ol>
+            <li><strong>Select Encryption Algorithm:</strong> Choose a secure encryption algorithm suitable for your
+                application.
+            </li>
+            <li><strong>Generate Keys:</strong> For asymmetric encryption, generate a key pair (public and private
+                keys).
+            </li>
+            <li><strong>Encrypt Data:</strong> Use the encryption algorithm and the appropriate key to encrypt the data.
+            </li>
+            <li><strong>Store or Transmit Securely:</strong> Ensure that encrypted data is securely stored or
+                transmitted.
+            </li>
+            <li><strong>Decryption:</strong> Use the corresponding key to decrypt the data when needed.</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Real-World Use Cases</h2>
+        <p>
+            Encryption is used in various scenarios:
+        </p>
+        <ul>
+            <li><strong>Secure Communications:</strong> Encrypting emails, instant messages, and online chats to protect
+                privacy.
+            </li>
+            <li><strong>Online Banking:</strong> Ensuring the security of financial transactions and sensitive account
+                information.
+            </li>
+            <li><strong>Secure Sockets Layer (SSL):</strong> Securing data transmission on the internet, such as during
+                online shopping.
+            </li>
+            <li><strong>Data at Rest:</strong> Encrypting data stored on devices or in the cloud to prevent unauthorized
+                access.
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Encryption Best Practices</h2>
+        <p>
+            Follow these best practices for effective encryption:
+        </p>
+        <ul>
+            <li><strong>Use Strong Algorithms:</strong> Choose widely-recognized and secure encryption algorithms.</li>
+            <li><strong>Protect Keys:</strong> Safeguard encryption keys and use secure key management practices.</li>
+            <li><strong>Regular Updates:</strong> Keep encryption software and libraries up to date to address
+                vulnerabilities.
+            </li>
+            <li><strong>Access Controls:</strong> Implement proper access controls to limit who can decrypt data.</li>
+            <li><strong>Monitor and Audit:</strong> Continuously monitor encryption processes and audit access to
+                encrypted data.
+            </li>
+        </ul>
+    </section>
+
+
+    <section>
+        <h2>Encrypt User Password</h2>
+        <h3>PHP Code for User Registration:</h3>
+        <div class="codeblock-container">
+        <pre class="codeblock">
+            <code class="php">
+<?php
+// Establish a database connection using mysqli
+$db_host = 'localhost';
+$db_user = 'username';
+$db_pass = 'password';
+$db_name = 'mydatabase';
+
+$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+
+// Check connection
+if ($conn->connect_error) {
+    // Display a generic error message
+    die("Unable to connect to the database.");
+    // Log the actual error for internal review
+    error_log("Database Connection Error: " . $conn->connect_error);
+}
+
+// Check if form data has been posted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    // Use bcrypt to hash the user's password
+    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
+    // Use a prepared statement to safely insert user data into the database
+    $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+    $stmt->bind_param("ss", $username, $hashed_password);
+
+    if ($stmt->execute()) {
+        echo "Registration successful!";
+    } else {
+        // Display a generic error message
+        echo "Registration failed. Please try again later.";
+        // Log the actual error for internal review
+        error_log("Error while inserting: " . $stmt->error);
+    }
+
+    // Close the statement
+    $stmt->close();
+}
+
+// Close the database connection
+$conn->close();
+?>
+            </code>
+        </pre>
+        </div>
+        <p>
+            In the above code, we've designed a user registration system. Here's how it works:
+        </p>
+        <ul>
+            <li><strong>Database Connection:</strong> We connect to a MySQL database using the `mysqli` extension.</li>
+            <li><strong>Password Encryption:</strong> Before storing the user's password in the database, we hash it
+                using bcrypt. Bcrypt is a robust hashing algorithm that adds a salt to the password automatically. This
+                salt ensures that even if two users have the same password, their hashed passwords will differ.
+                Moreover, bcrypt is computationally intensive, which helps deter brute-force attacks.
+            </li>
+            <li><strong>Prepared Statements:</strong> To prevent SQL injection attacks, we use prepared statements when
+                inserting data into the database. This means the data and the SQL query are sent to the SQL server
+                separately, ensuring that user input cannot be executed as SQL code.
+            </li>
+        </ul>
+    </section>
+
+
+    <section>
+        <h2>User Login with Encrypted Password</h2>
+        <h3>PHP Code for User Login:</h3>
+        <div class="codeblock-container">
+        <pre class="codeblock">
+            <code class="php">
+<?php
+// Establish a database connection using mysqli
+$db_host = 'localhost';
+$db_user = 'username';
+$db_pass = 'password';
+$db_name = 'mydatabase';
+
+$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+
+// Check connection
+if ($conn->connect_error) {
+    // Display a generic error message
+    die("Unable to connect to the database.");
+    // Log the actual error for internal review
+    error_log("Database Connection Error: " . $conn->connect_error);
+}
+
+// Check for user login form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    // Use a prepared statement to safely retrieve hashed password from the database
+    $stmt = $conn->prepare("SELECT password FROM users WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+        $hashed_password = $row["password"];
+
+        // Use the password_verify function to check the submitted password against the stored hash
+        if (password_verify($password, $hashed_password)) {
+            echo "Login successful!";
+        } else {
+            echo "Incorrect username or password.";
+        }
+    } else {
+        echo "User not found.";
+    }
+
+    // Close the statement
+    $stmt->close();
+}
+
+// Close the database connection
+$conn->close();
+?>
+            </code>
+        </pre>
+        </div>
+        <p>
+            In the provided code, we've constructed a user login system. Here's an overview of its operations:
+        </p>
+        <ul>
+            <li><strong>Database Connection:</strong> A connection to a MySQL database is established using the `mysqli`
+                extension.
+            </li>
+            <li><strong>Retrieving Hashed Password:</strong> To validate a user's login request, we retrieve the hashed
+                password from the database using a prepared statement. This ensures that our query is secure from SQL
+                injection attacks.
+            </li>
+            <li><strong>Password Verification:</strong> The `password_verify` function is used to match the submitted
+                password against the stored hash. This function understands how bcrypt hashing works and can accurately
+                determine if the provided password matches the hash.
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Change Password with Encryption</h2>
+        <h3>PHP Code for Password Change:</h3>
+        <div class="codeblock-container">
+        <pre class="codeblock">
+            <code class="php">
+<?php
+// Establish a database connection using mysqli
+$db_host = 'localhost';
+$db_user = 'username';
+$db_pass = 'password';
+$db_name = 'mydatabase';
+
+$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+
+// Check connection
+if ($conn->connect_error) {
+    // Display a generic error message
+    die("Unable to connect to the database.");
+    // Log the actual error for internal review
+    error_log("Database Connection Error: " . $conn->connect_error);
+}
+
+// Handle password change request
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+    $old_password = $_POST["old_password"];
+    $new_password = $_POST["new_password"];
+
+    // Use a prepared statement to safely retrieve the hashed password from the database
+    $stmt = $conn->prepare("SELECT password FROM users WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+        $hashed_password = $row["password"];
+
+        // Verify the old password against the stored hash
+        if (password_verify($old_password, $hashed_password)) {
+            // Hash the new password
+            $new_hashed_password = password_hash($new_password, PASSWORD_BCRYPT);
+
+            // Use another prepared statement to update the user's password in the database
+            $update_stmt = $conn->prepare("UPDATE users SET password = ? WHERE username = ?");
+            $update_stmt->bind_param("ss", $new_hashed_password, $username);
+
+            if ($update_stmt->execute()) {
+                echo "Password changed successfully!";
+            } else {
+                echo "Error changing password. Please try again later.";
+                // Log the actual error for internal review
+                error_log("Error updating password: " . $update_stmt->error);
+            }
+            $update_stmt->close();
+
+        } else {
+            echo "Incorrect old password.";
+        }
+    } else {
+        echo "User not found.";
+    }
+
+    // Close the statement and the database connection
+    $stmt->close();
+    $conn->close();
+?>
+            </code>
+        </pre>
+        </div>
+        <p>
+            In this segment, we've illustrated a mechanism to change a user's password. Key steps include:
+        </p>
+        <ul>
+            <li><strong>Database Connection:</strong> We set up a connection to the MySQL database with the `mysqli`
+                extension.
+            </li>
+            <li><strong>Fetching Existing Password:</strong> When a user wishes to change their password, we first fetch
+                their stored, hashed password from the database securely using a prepared statement.
+            </li>
+            <li><strong>Password Verification:</strong> Using the `password_verify` function, we confirm if the provided
+                old password is correct.
+            </li>
+            <li><strong>Updating Password:</strong> After verification, we hash the new password and update the record
+                in the database. All database interactions are performed securely with prepared statements.
+            </li>
+        </ul>
+    </section>
+
+
+    <section>
+        <h2>Test Your Knowledge</h2>
+        <p>Answer the following question to test your understanding of encryption:</p>
+
+        <label>What is the primary purpose of encryption?</label>
+        <div class="quiz-options">
+            <div class="quiz-option">
+                <input type="radio" name="encryptionQuestion" value="confidentiality" id="confidentiality"
+                       onclick="checkAnswer()">
+                <label for="confidentiality" class="quiz-label">Ensuring data confidentiality</label>
+            </div>
+            <div class="quiz-option">
+                <input type="radio" name="encryptionQuestion" value="integrity" id="integrity" onclick="checkAnswer()">
+                <label for="integrity" class="quiz-label">Maintaining data integrity</label>
+            </div>
+            <div class="quiz-option">
+                <input type="radio" name="encryptionQuestion" value="availability" id="availability"
+                       onclick="checkAnswer()">
+                <label for="availability" class="quiz-label">Ensuring data availability</label>
+            </div>
+        </div>
+        <p id="quizFeedback" class="mt-3"></p>
+    </section>
+
+</div>
+
+<footer class="footer mt-auto py-3 custom-footer">
+    <div class="container text-center">
+        <span>Java Web Penetration Testing Project © 2023</span>
+        <a href="https://github.com/your_username" target="_blank" class="ml-3">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+</footer>
+
+<!-- jQuery and Bootstrap scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Your custom scripts -->
+<script src="js/scripts.js"></script>
+<script src="js/encryption-quiz.js"></script>
 </body>
+
 </html>
