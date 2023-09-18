@@ -1,0 +1,339 @@
+/* =======================================================
+   BASE STYLES
+   ======================================================= */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: #121212;
+    color: #e2e2e2;
+}
+
+.main {
+    min-height: 75vh;
+}
+
+h1, h2 {
+    color: #33FF33;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+/* =======================================================
+   NAVIGATION STYLES
+   ======================================================= */
+.custom-navbar {
+    background-color: #1a1a1a;
+    border-bottom: 2px solid #333;
+}
+
+.navbar-toggler-icon {
+    filter: invert(1) hue-rotate(90deg);
+}
+
+.nav-link, .navbar-brand {
+    transition: color 0.5s, text-shadow 0.5s;
+}
+
+.nav-link {
+    color: #e2e2e2;
+}
+
+.custom-navbar .navbar-nav .nav-link:hover, .navbar-brand.hover-top:hover {
+    color: #22cc22;
+    text-shadow: 0px 0px 5px #33FF33;
+}
+
+.active .nav-link {
+    color: #aaa;
+}
+
+.navbar-brand {
+    color: #33FF33;
+}
+
+/* =======================================================
+   DROPDOWN STYLES
+   ======================================================= */
+.custom-dropdown {
+    background-color: #121212;
+    border: none;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
+}
+
+.custom-dropdown .dropdown-item {
+    color: #e2e2e2;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.custom-dropdown .dropdown-item:hover {
+    background-color: #1a1a1a;
+    color: #22cc22;
+}
+
+/* =======================================================
+   FORM STYLES
+   ======================================================= */
+.form-control, .form-control-file {
+    background-color: #333;
+    border: 1px solid #444;
+    color: #e2e2e2;
+    transition: border-color 0.5s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #22cc22;
+}
+
+/* =======================================================
+   BUTTON STYLES
+   ======================================================= */
+.btn.custom-btn, .btn.custom-btn-danger {
+    border: none;
+    transition: background-color 0.5s, text-shadow 0.5s;
+}
+
+.btn.custom-btn {
+    background-color: #555;
+    color: #e2e2e2;
+}
+
+.btn.custom-btn:hover {
+    background-color: #666;
+    text-shadow: 0px 0px 5px #33FF33;
+}
+
+.btn.custom-btn-danger {
+    background-color: #900;
+    color: #fff;
+}
+
+.btn.custom-btn-danger:hover {
+    background-color: #a00;
+    text-shadow: 0px 0px 5px #ff3333;
+}
+
+/* =======================================================
+   FOOTER STYLES
+   ======================================================= */
+.footer.custom-footer {
+    background-color: #1a1a1a;
+    border-top: 2px solid #2c2c2c;
+}
+
+.footer span {
+    color: #888;
+}
+
+/* =======================================================
+   SPECIFIC PAGE STYLES
+   ======================================================= */
+.about-content {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.about-content a {
+    color: #33FF33;
+    transition: color 0.5s, text-shadow 0.5s;
+}
+
+.about-content a:hover {
+    color: #22cc22;
+    text-shadow: 0px 0px 5px #33FF33;
+}
+
+/* =======================================================
+   FEATURE EDGY STYLES AND SPACER(Neon Text, Hint Icon, Spacer)
+   =======================================================
+*/
+.hint-icon {
+    font-size: 20px;
+    color: #ff3333;
+    transition: color 0.5s;
+    cursor: pointer;
+}
+
+.hint-icon:hover {
+    color: #ff6666;
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 25px rgba(0, 255, 255, 0.2);
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+.spacer {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+/* =======================================================
+   CSRF STYLES
+   =======================================================
+*/
+.main.spacer {
+    padding: 20px 15%;
+}
+
+.doc-header {
+    border-bottom: 2px solid #21F40B;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+/* =======================================================
+   XSS STYLES
+   =======================================================
+*/
+.form-vulnerable {
+    background-color: rgba(33, 244, 11, 0.1);
+    padding: 20px;
+    border: 1px solid #21F40B;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.form-vulnerable input[type="password"], .form-vulnerable input[type="submit"] {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* =======================================================
+   Code Block styles to make it look like an IDE
+   =======================================================
+*/
+.codeblock-container {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.codeblock {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border-left: 3px solid #33FF33;
+    padding: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* =======================================================
+   Specific language highlight styles
+   =======================================================
+*/
+code.hljs.html {
+    border-left: 3px solid green;
+}
+
+code.hljs.javascript {
+    border-left: 3px solid blue;
+}
+
+code.hljs.php {
+    border-left: 3px solid purple;
+}
+
+code.hljs.sql {
+    border-left: 3px solid #ff0000;
+}
+
+/* Language label styles */
+.language-label {
+    position: absolute;
+    top: -15px;
+    left: 5px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+.codeblock-container:hover .language-label {
+    opacity: 1;
+}
+
+/* =======================================================
+   QUIZ STYLES
+   =======================================================
+*/
+.quiz-option {
+    margin-bottom: 10px;
+}
+
+.quiz-option input[type="radio"] {
+    display: none;
+}
+
+.quiz-label {
+    padding: 5px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+/* =======================================================
+   MATRIX-ANIMATION-BG
+   =======================================================
+*/
+#matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: -1;
+}
+
+.matrix-container {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: fall 2s linear infinite;
+    font-family: 'Courier New', monospace;
+    color: #00FF00;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateX(-50%) translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(-50%) translateY(100%);
+        opacity: 1;
+    }
+}
+
+.matrix-char {
+    position: absolute;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+#matrix-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+

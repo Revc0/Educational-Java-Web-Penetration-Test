@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross-Site-Request-Reforgery - Web Penetration Testing Project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css\styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<header class="shadow-lg">
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <a class="navbar-brand hover-top" href="index.html">Web Penetration Testing Project</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="vulnerabilities.html">Encryption</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tutorials.html">Secure Webdesign and Databases</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="learning.html" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Learning
+                    </a>
+                    <div class="dropdown-menu custom-dropdown" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="sqlinjection.html">SQL Injection</a>
+                        <a class="dropdown-item" href="crosssitescripting.html">Cross-Site Scripting</a>
+                        <a class="dropdown-item" href="crosssiterequestforgery.html">Cross-Site Request Forgery</a>
+                    </div>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="main spacer">
+
+    <section>
+        <h2>What is CSRF?</h2>
+        <p>
+            Cross-Site Request Forgery (CSRF) is a type of attack that tricks an end user into executing unwanted
+            actions on a web application where they're currently authenticated. Without safeguards in place, a malicious
+            website could force a user's browser to perform an action on another website for which the user is
+            authenticated, leading to potentially harmful or unwanted results.
+        </p>
+    </section>
+
+    <section>
+        <h2>Why is it Dangerous?</h2>
+        <p>
+            CSRF can be used to perform any action that a user is able to do on a vulnerable website. This could include
+            changing account settings, making unauthorized purchases, logging out users, and even compromising the
+            entire web application depending on the user's role and privileges.
+        </p>
+    </section>
+
+    <section>
+        <h2>Insecure Form Example</h2>
+        <h3>Change Password Form (Insecure)</h3>
+        <div class="codeblock-container">
+        <pre class="codeblock">
+                <code class="html">
+&lt;form action="/change-password" method="POST"&gt;
+    New Password: &lt;input type="password" name="new-password" class="form-control" /&gt;
+    &lt;input type="submit" value="Change Password" class="btn custom-btn" /&gt;
+&lt;/form&gt;
+          </code>
+        </pre>
+        </div>
+        <p>
+            This form is vulnerable to CSRF attacks because it lacks anti-CSRF tokens. If a user is tricked into
+            visiting a malicious website while being logged into this application, the attacker can potentially force
+            the user's browser to submit a password change on their behalf without their knowledge.
+        </p>
+    </section>
+
+    <section>
+        <h2>How is CSRF Prevented?</h2>
+        <ul>
+            <li><strong>Use Anti-CSRF Tokens:</strong> This involves the server generating a random token and sending it
+                to the client with every session. When a form is submitted, the server checks the received token against
+                the one stored in the session. If they match, the request is legitimate; otherwise, it's flagged as a
+                CSRF attempt.
+            </li>
+            <li><strong>SameSite Cookie Attribute:</strong> By setting the `SameSite` attribute on cookies, browsers can
+                be instructed to only send cookies along with requests originated from the same site the cookie was set
+                on. This can effectively prevent CSRF in many cases.
+            </li>
+            <li><strong>Check Referer Headers:</strong> By examining the `Referer` header of incoming requests, servers
+                can determine the source of the request and decide whether to proceed with the action.
+            </li>
+        </ul>
+        <p>
+            While each of these solutions can be effective, combining multiple strategies provides the best defense
+            against CSRF attacks.
+        </p>
+    </section>
+
+    <section>
+        <h2>Secure Form Example</h2>
+        <h3>Change Password Form (Secure)</h3>
+        <div class="codeblock-container">
+        <pre class="codeblock">
+                <code class="html">
+&lt;form action="/change-password" method="POST"&gt;
+    &lt;input type="hidden" name="csrf-token" value="GENERATED_CSRF_TOKEN" /&gt;
+    New Password: &lt;input type="password" name="new-password" class="form-control" /&gt;
+    &lt;input type="submit" value="Change Password" class="btn custom-btn" /&gt;
+&lt;/form&gt;
+             </code>
+        </pre>
+        </div>
+        <p>
+            This form includes an anti-CSRF token, ensuring the authenticity of the request. The server should check the
+            provided CSRF token against the one stored in the user's session to verify the authenticity of the request.
+        </p>
+    </section>
+
+    <section>
+        <h2>Further Reading and Resources</h2>
+        <ul>
+            <li><a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)" target="_blank">OWASP CSRF
+                Prevention</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Test Your Knowledge</h2>
+        <p>Answer the following question to test your understanding of CSRF:</p>
+
+        <label>What does CSRF exploit?</label>
+        <div class="quiz-options">
+            <div class="quiz-option">
+                <input type="radio" name="csrfQuestion" value="serverTrust" id="serverTrust" onclick="checkAnswer()">
+                <label for="serverTrust" class="quiz-label">The trust a server has in itself</label>
+            </div>
+            <div class="quiz-option">
+                <input type="radio" name="csrfQuestion" value="userBrowser" id="userBrowser" onclick="checkAnswer()">
+                <label for="userBrowser" class="quiz-label">The trust a site has in a user's browser</label>
+            </div>
+            <div class="quiz-option">
+                <input type="radio" name="csrfQuestion" value="browserTrust" id="browserTrust" onclick="checkAnswer()">
+                <label for="browserTrust" class="quiz-label">The trust a browser has in a server's certificate</label>
+            </div>
+            <div class="quiz-option">
+                <input type="radio" name="csrfQuestion" value="cookieStorage" id="cookieStorage"
+                       onclick="checkAnswer()">
+                <label for="cookieStorage" class="quiz-label">The way browsers store cookies</label>
+            </div>
+        </div>
+        <p id="quizFeedback" class="mt-3"></p>
+    </section>
+
+    <section>
+        <button id="stopAnimationButton" class="btn custom-btn">Stop Animation</button>
+    </section>
+
+
+</div>
+
+
+<footer class="footer mt-auto py-3 custom-footer">
+    <div class="container text-center">
+        <span>Java Web Penetration Testing Project © 2023</span>
+        <a href="https://github.com/your_username" target="_blank" class="ml-3">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+</footer>
+
+
+<!-- jQuery and Bootstrap scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Your custom scripts -->
+<script src="js\scripts.js"></script>
+<script src="js\csrf-quiz.js"></script>
+<script src="js\matrix-animation.js"></script>
+
+</body>
+</html>
