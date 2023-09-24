@@ -19,8 +19,5 @@ fetch('http://victim-site.com')
 
 
     
-```
-service apache2 restart
-```
 
 **Caution**: In a real-world scenario, setting `Access-Control-Allow-Origin` to `*` is risky, as it means any website can read the content of your site via AJAX requests. This would generally be a bad idea outside of a controlled demonstration environment. Always ensure you are following best practices and understand the implications of the configurations you apply.
