@@ -1,4 +1,4 @@
-# Java Web Penetration Testing Project 🔰
+# Java Web Penetration Testing Project made with the help of Chat GPT to save my fuking time 🔰
 
 This project showcases a purposely vulnerable web application, designed to illustrate common security flaws found in web applications. The project provides practical experience in identifying, exploiting, and mitigating these vulnerabilities.
 Keep in Mind this project is not 100% finished because i have my focus on another project but i wanted to realease it for the public to explore. 
